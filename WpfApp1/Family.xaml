@@ -1,0 +1,53 @@
+﻿<Window x:Class="WpfApp1.Family"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Ghost" 
+        MinWidth="1000" MinHeight="800"  MaxWidth="1000" MaxHeight="800" SizeToContent="WidthAndHeight" Background="White">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+            </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Button Content="Info about ghost" />
+            <StackPanel Name="Info">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Name ghost: ...." VerticalAlignment="Top"/>
+                <ProgressBar Name="Food" HorizontalAlignment="Left" Height="10"  VerticalAlignment="Top" Width="100"/>
+                <ProgressBar HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="100"/>
+                <ProgressBar HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="100"/>
+            </StackPanel>
+                <Button Content="invite a friend"></Button>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Name="Actions" Width="50" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Rectangle Width="50" Height="50" Margin="0,10,0,0" Stroke="#FF3AFF00" StrokeThickness="5"></Rectangle>
+                <Rectangle Width="50" Height="50" Margin="0,10,0,0" Stroke="#FFFFC500" StrokeThickness="5"></Rectangle>
+                <Rectangle Width="50" Height="50" Margin="0,10,0,0" Stroke="#FF003AFF" StrokeThickness="5"></Rectangle>
+                <Rectangle Width="50" Height="50" Margin="0,10,0,0" Stroke="Red" StrokeThickness="5"></Rectangle>
+            </StackPanel>
+        </Grid>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="1" 
+                Name ="Return"
+                Content="Return to Main Menu" 
+                FontFamily="Snap ITC"
+                Background="White"
+                FontSize="34" HorizontalAlignment="Left" Padding="5,5,5,5"/>
+        </Grid>
+        
+
+    </Grid>
+</Window>

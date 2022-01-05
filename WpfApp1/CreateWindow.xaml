@@ -1,0 +1,87 @@
+﻿<Window x:Class="WpfApp1.CreateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Name="CreateW" Title="Ghosts"
+        MinWidth="1000" MinHeight="800"  MaxWidth="1000" MaxHeight="800" SizeToContent="WidthAndHeight" Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,10,0,0"
+                   TextWrapping="Wrap" 
+                   Text="Create ghost"
+                   VerticalAlignment="Top" 
+                   FontFamily="Snap ITC"
+                   FontSize="36"/>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Rectangle Grid.Column="1" 
+                       Fill="#FFF4F4F5" 
+                       HorizontalAlignment="Center"
+                       Height="328"
+                       Stroke="Black"
+                       VerticalAlignment="Center"
+                       Width="245"/>
+            <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                <TextBlock Text="Write name"></TextBlock>
+                <TextBox></TextBox>
+                <Grid  HorizontalAlignment="Center" Height="328"  Width="388">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Gender" Grid.Column="0" Grid.Row="0"/>
+                    <StackPanel Grid.Column="1" Grid.Row="0">
+                        <RadioButton  Content="f"/>
+                        <RadioButton  Content="m"/>
+                    </StackPanel>
+
+                    <TextBlock Text="Person" Grid.Column="0" Grid.Row="1"/>
+                    <StackPanel Grid.Column="1" Grid.Row="1">
+                        <RadioButton  Content="1"/>
+                        <RadioButton  Content="2"/>
+                    </StackPanel>
+                    <TextBlock Text="course" Grid.Column="0" Grid.Row="2"/>
+                    <StackPanel Grid.Column="1" Grid.Row="2">
+                        <RadioButton  Content="1"/>
+                        <RadioButton  Content="2"/>
+                        <RadioButton  Content="3"/>
+                        <RadioButton  Content="4"/>
+                    </StackPanel>
+                </Grid>
+
+                <Button Name="NewFamilyButton" Content="Create new ghost" Width="200"></Button>
+
+            </StackPanel>
+            
+        </Grid>
+
+        <Button Grid.Row="2" 
+                Name ="Return"
+                Content="Return to Main Menu" 
+                FontFamily="Snap ITC"
+                Background="White"
+                FontSize="34" HorizontalAlignment="Left" Padding="5,5,5,5"/>
+
+    </Grid>
+</Window>
