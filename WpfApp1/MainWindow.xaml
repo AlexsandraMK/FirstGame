@@ -4,35 +4,61 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
-        Name="MainW" Title="Ghosts" 
-        MinWidth="1000" MinHeight="800"  MaxWidth="1000" MaxHeight="800" SizeToContent="WidthAndHeight" Background="White">
-
+        Name="MainW" 
+        Style="{StaticResource MainWindow}"
+        WindowStartupLocation="CenterScreen">
+    
     <Grid>
         <Grid.Background >
             <ImageBrush ImageSource="D:\Progs\VisualSaves\WPF\App1\WpfApp1\WpfApp1\bin\Debug\payk.png"  />
         </Grid.Background>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*" MaxWidth="500"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="1" Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Snap ITC" FontSize="36" >Main Menu</TextBlock>
-        <Grid Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" MinHeight="200" Background="#FF938B8B">
 
+        <Grid Style="{StaticResource BackgroundGrid}">
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Button Name="CreateGhostButton"  Grid.Row="0" FontFamily="Stencil" FontSize="20">Create a ghost</Button>
-            <Button Name="GoToFamilyButton" Grid.Row="1" FontFamily="Stencil" FontSize="20">Go to family</Button>
-            <Button Grid.Row="2" FontFamily="Stencil" FontSize="20">Settings</Button>
-            <Button Name="Exit" Grid.Row="3" FontFamily="Stencil" FontSize="20">Exit</Button>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*" MaxWidth="500"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Grid.Row="0"
+                       Grid.Column="1"
+                       Text="Main Menu"
+                       Style="{StaticResource NameOfWindow}"/>
+            
+            <Grid Grid.Row="1"
+                  Grid.Column="1"
+                  VerticalAlignment="Center"
+                  MinHeight="200"
+                  Background="#FF938B8B"
+                  Margin="0,0,0,30">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                
+                <Button Name="CreateGhostButton"
+                        Grid.Row="0"
+                        Content="Create a ghost"/>
+                
+                <Button Name="GoToFamilyButton"
+                        Grid.Row="1"
+                        Content="Go to family" />
+                
+                <Button Name="SettingsButton"
+                        Grid.Row="2"
+                        Content="Settings"/>
+                
+                <Button Name="Exit"
+                        Grid.Row="3"
+                        Content="Exit"/>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

@@ -7,7 +7,7 @@ namespace WpfApp1
 {
     public partial class MainWindow : Window
     {
-        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -34,6 +34,10 @@ namespace WpfApp1
         private void GoExit(Object sender, EventArgs e)
         {
             MainW.Close();
+        }
+
+        private void CloseWindow(object sender, EventArgs e)
+        {
         }
     }
 }

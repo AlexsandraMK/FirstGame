@@ -5,47 +5,86 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Ghost" 
-        MinWidth="1000" MinHeight="800"  MaxWidth="1000" MaxHeight="800" SizeToContent="WidthAndHeight" Background="White">
-    <Grid>
+        Style="{StaticResource MainWindow}"
+        WindowStartupLocation="CenterScreen"
+        Closed="CloseWindow">
+
+    <Window.Resources>
+        <Style TargetType="ProgressBar">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Margin" Value="2"/>
+        </Style>
+
+        <Style TargetType="Rectangle" x:Key="Actions">
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Margin" Value="0,20,0,0"/>
+            <Setter Property="StrokeThickness" Value="5"/>
+        </Style>
+    </Window.Resources>
+    <Grid Style="{StaticResource BackgroundGrid}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            <ColumnDefinition Width="0.45*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+
+        <Rectangle Grid.Column="0" Fill="White" Opacity="0.5">
+            
+        </Rectangle>
+        
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
-                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
             </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            <Button Content="Info about ghost" />
-            <StackPanel Name="Info">
-                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Name ghost: ...." VerticalAlignment="Top"/>
-                <ProgressBar Name="Food" HorizontalAlignment="Left" Height="10"  VerticalAlignment="Top" Width="100"/>
-                <ProgressBar HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="100"/>
-                <ProgressBar HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="100"/>
+            
+            <StackPanel Grid.Row="0">
+                <Button Name="InfoButton" Content="Info about ghost" Height="50"/>
+                <StackPanel Name="Info" Visibility="Collapsed">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock HorizontalAlignment="Left" Text="Name ghost:"  FontSize="16" Margin="20"/>
+                        <TextBlock Foreground="Red" Margin="20"> NAME </TextBlock>
+                    </StackPanel>
+                    
+                    <ProgressBar />
+                    <ProgressBar />
+                    <ProgressBar />
+                    
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock HorizontalAlignment="Left" Text="Family code:"  FontSize="16" Margin="20"/>
+                    <TextBox Foreground="Red" Margin="20"  FontSize="16" Text="FAMILY CODE" IsReadOnly="True" BorderThickness="0">
+                        <TextBox.Background>
+                            <SolidColorBrush Opacity="0"/>
+                        </TextBox.Background>
+                    </TextBox>
+                </StackPanel>
+                <Button Content="invite a friend" Width="250" Margin="20"></Button>
             </StackPanel>
-                <Button Content="invite a friend"></Button>
-            </StackPanel>
-            <StackPanel Grid.Row="1" Name="Actions" Width="50" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <Rectangle Width="50" Height="50" Margin="0,10,0,0" Stroke="#FF3AFF00" StrokeThickness="5"></Rectangle>
-                <Rectangle Width="50" Height="50" Margin="0,10,0,0" Stroke="#FFFFC500" StrokeThickness="5"></Rectangle>
-                <Rectangle Width="50" Height="50" Margin="0,10,0,0" Stroke="#FF003AFF" StrokeThickness="5"></Rectangle>
-                <Rectangle Width="50" Height="50" Margin="0,10,0,0" Stroke="Red" StrokeThickness="5"></Rectangle>
+                <StackPanel Grid.Row="1" Name="Actions" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Rectangle Style="{StaticResource Actions}" Stroke="#FF3AFF00" />
+                <Rectangle Style="{StaticResource Actions}" Stroke="#FFFFC500" />
+                <Rectangle Style="{StaticResource Actions}" Stroke="#FF003AFF" />
+                <Rectangle Style="{StaticResource Actions}" Stroke="Red" />
             </StackPanel>
         </Grid>
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="9*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Button Grid.Row="1" 
+            <Button Grid.Row="2" 
                 Name ="Return"
                 Content="Return to Main Menu" 
-                FontFamily="Snap ITC"
-                Background="White"
-                FontSize="34" HorizontalAlignment="Left" Padding="5,5,5,5"/>
+                Width="300"
+                FontSize="24" 
+                HorizontalAlignment="Left"
+                Padding="5,5,5,5"
+                Margin="13.5"/>
         </Grid>
         
 

@@ -4,6 +4,158 @@
              xmlns:local="clr-namespace:WpfApp1"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Grid.Background>
+                                <RadialGradientBrush Opacity="0.4">
+                                    <GradientStop Color="White" Offset="0.4" />
+                                    <GradientStop Color="#FF171717" Offset="1"/>
+                                </RadialGradientBrush>
+                            </Grid.Background>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Button.Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="Black" Direction="50" ShadowDepth="0" BlurRadius="2" Opacity="1" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="FontFamily" Value="Stencil"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+
+        <Style TargetType="Grid" x:Key="BackgroundGrid">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="D:\Progs\VisualSaves\WPF\App1\WpfApp1\WpfApp1\bin\Debug\Background.png"  Opacity="0.5"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="NameOfWindow">
+            <Setter Property="Margin" Value="0,15,0,0" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontFamily" Value="Snap ITC" />
+            <Setter Property="FontSize" Value="36" />
+        </Style>
+
+        <Style TargetType="TextBox" x:Key="EditText">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Background" Value="#FF4F4E4E" />
+            <Setter Property="BorderBrush" Value="#FF0F0F0F" />
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="SelectionBrush" Value="{x:Null}" />
+            <Setter Property="Foreground" Value="#FFC9C9C5"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style TargetType="RadioButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <BulletDecorator Background="Transparent">
+                            <BulletDecorator.Bullet>
+                                <Grid Width="20" Height="20">
+                                    <Ellipse x:Name="Border" StrokeThickness="1" Stroke ="Black" Opacity="0.6">
+                                        <Ellipse.Fill>
+                                            <RadialGradientBrush>
+                                                <GradientStop Color="White" Offset="0.2" />
+                                                <GradientStop Color="#FF171717" Offset="1"/>
+                                            </RadialGradientBrush>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <Ellipse x:Name="CheckMark" Margin="4" Visibility="Collapsed">
+                                        <Ellipse.Fill>
+                                            <SolidColorBrush Color="#FF511414" />
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </Grid>
+                            </BulletDecorator.Bullet>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border" 
+                                                                          Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)"
+                                                                          RepeatBehavior="Forever">
+                                                <LinearColorKeyFrame KeyTime="0:0:1" Value="White" />
+                                                <LinearColorKeyFrame KeyTime="0:0:2" Value="#FF171717" />
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border"
+                                                Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border"
+                                                Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border"
+                                                Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                                <EasingColorKeyFrame KeyTime="0" Value="#40000000" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border"
+                                                Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Color)">
+                                                <EasingColorKeyFrame KeyTime="0" Value="#40000000" />
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+
+                                <VisualStateGroup x:Name="CheckStates">
+                                    <VisualState x:Name="Checked">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)"
+                                                 Storyboard.TargetName="CheckMark">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                            Value="{x:Static Visibility.Visible}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Unchecked" />
+                                    <VisualState x:Name="Indeterminate" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </BulletDecorator>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Window" x:Key="MainWindow">
+            <Setter Property="Title" Value="Ghosts"/>
+            <Setter Property="MinWidth" Value="1000"/>
+            <Setter Property="MaxWidth" Value="1000"/>
+            <Setter Property="MinHeight" Value="800"/>
+            <Setter Property="MaxHeight" Value="800"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="SizeToContent" Value="WidthAndHeight"/>
+        </Style>
     </Application.Resources>
 </Application>

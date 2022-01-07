@@ -19,6 +19,8 @@ namespace WpfApp1
     /// </summary>
     public partial class CreateWindow : Window
     {
+        bool isReturn = false;
+        bool isGoToFamily = false;
         public CreateWindow()
         {
             InitializeComponent();
@@ -27,18 +29,35 @@ namespace WpfApp1
         }
         private void GoReturn(Object sender, EventArgs e)
         {
-            
+            isReturn = true;
             CreateW.Close();
-            CreateW.Owner.Visibility = Visibility.Visible;
+            
         }
 
         private void GoToFamily(Object sender, EventArgs e)
         {
-
-            CreateW.Close();
             Family window = new Family();
             window.Owner = CreateW.Owner;
+            isGoToFamily = true;
+            CreateW.Close();
+
             window.ShowDialog();
+        }
+
+        private void CloseWindow(object sender, EventArgs e)
+        {
+            if(isReturn)
+            {
+                CreateW.Owner.Visibility = Visibility.Visible;
+            } 
+            else
+            {
+                if (!isGoToFamily)
+                {
+                    CreateW.Owner.Close();
+                }
+            }
+            
         }
     }
 }
