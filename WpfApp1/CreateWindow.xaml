@@ -56,7 +56,10 @@
                 <TextBlock Text="Please enter the name of the ghost" FontSize="16"/>
                 <StackPanel Orientation="Horizontal" Margin="15">
                     <TextBlock Text="Write name:" FontSize="16" Margin="0,0,20,0" VerticalAlignment="Center"></TextBlock>
-                    <TextBox Style="{StaticResource EditText}" Width="400"></TextBox>
+                    <TextBox Name="NameGhost"
+                             Style="{StaticResource EditText}"
+                             Width="400"
+                             TextChanged="NameGhostChanged"/>
                 </StackPanel>
 
 
@@ -64,7 +67,7 @@
                     <TextBlock Text="Gender:" VerticalAlignment="Center" Margin="0,0,20,0"/>
                     
                     <StackPanel Margin="20">
-                        <RadioButton  GroupName="Gender" HorizontalAlignment="Center"/>
+                        <RadioButton IsChecked="True"  GroupName="Gender" HorizontalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="Female"/>
                     </StackPanel>
 
@@ -79,7 +82,7 @@
                 <StackPanel Orientation="Horizontal" Margin="15">
                     <TextBlock Text="Appearance:" VerticalAlignment="Center" Margin="0,0,20,0"/>
                     <StackPanel Margin="20">
-                            <RadioButton   GroupName="Appearance" HorizontalAlignment="Center"/>
+                        <RadioButton   IsChecked="True" GroupName="Appearance" HorizontalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="1"/>
                         </StackPanel>
                         <StackPanel Margin="20">
@@ -91,7 +94,7 @@
                 <StackPanel Orientation="Horizontal" Margin="15">
                     <TextBlock Text="Difficulty:" VerticalAlignment="Center" Margin="0,0,20,0"/>
                     <StackPanel Margin="20">
-                        <RadioButton   GroupName="Difficulty" HorizontalAlignment="Center"/>
+                        <RadioButton  IsChecked="True" GroupName="Difficulty" HorizontalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="1"/>
                     </StackPanel>
                     <StackPanel Margin="20">
@@ -107,7 +110,11 @@
                         <TextBlock HorizontalAlignment="Center" Text="4"/>
                     </StackPanel>
                 </StackPanel>
-                <Button Name="NewFamilyButton" FontSize="19" Content="Create new ghost" Width="300"></Button>
+                <Button Name="NewFamilyButton" 
+                        FontSize="19" 
+                        Content="Create new ghost"
+                        Width="300"
+                        IsEnabled="False"/>
 
             </StackPanel>
             

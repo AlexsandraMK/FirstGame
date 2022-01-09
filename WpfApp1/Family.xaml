@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Style="{StaticResource MainWindow}"
         WindowStartupLocation="CenterScreen"
-        Closed="CloseWindow">
+        Closed="CloseWindow"
+        Loaded="Open">
 
     <Window.Resources>
         <Style TargetType="ProgressBar">
@@ -18,11 +19,10 @@
             <Setter Property="Margin" Value="2"/>
         </Style>
 
-        <Style TargetType="Rectangle" x:Key="Actions">
+        <Style TargetType="Button" x:Key="Actions">
             <Setter Property="Width" Value="80"/>
             <Setter Property="Height" Value="80"/>
             <Setter Property="Margin" Value="0,20,0,0"/>
-            <Setter Property="StrokeThickness" Value="5"/>
         </Style>
     </Window.Resources>
     <Grid Style="{StaticResource BackgroundGrid}">
@@ -35,7 +35,7 @@
             
         </Rectangle>
         
-        <Grid Grid.Column="1">
+        <Grid Name ="MainGrid" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="2*"></RowDefinition>
@@ -55,21 +55,35 @@
                     
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock HorizontalAlignment="Left" Text="Family code:"  FontSize="16" Margin="20"/>
-                    <TextBox Foreground="Red" Margin="20"  FontSize="16" Text="FAMILY CODE" IsReadOnly="True" BorderThickness="0">
+                    
+                    <TextBlock HorizontalAlignment="Left" 
+                               Text="Family code:"  
+                               FontSize="16" 
+                               Margin="20"/>
+                    
+                    <TextBox Name="FamilyCodeTextBox"
+                             Foreground="Red" 
+                             Margin="20" 
+                             FontSize="16"
+                             IsReadOnly="True" 
+                             BorderThickness="0">
                         <TextBox.Background>
                             <SolidColorBrush Opacity="0"/>
                         </TextBox.Background>
                     </TextBox>
                 </StackPanel>
-                <Button Content="invite a friend" Width="250" Margin="20"></Button>
             </StackPanel>
-                <StackPanel Grid.Row="1" Name="Actions" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Rectangle Style="{StaticResource Actions}" Stroke="#FF3AFF00" />
-                <Rectangle Style="{StaticResource Actions}" Stroke="#FFFFC500" />
-                <Rectangle Style="{StaticResource Actions}" Stroke="#FF003AFF" />
-                <Rectangle Style="{StaticResource Actions}" Stroke="Red" />
-            </StackPanel>
+                <Canvas  Name="ActionsCanvas"
+                    Height="480" 
+                    Width="300"  
+                    Grid.Row="1"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center">
+                    
+                    <Button Name="GiveFood" Style="{StaticResource Actions}" Background="#FF3AFF00"/>
+                    <Button Name="GiveClean" Style="{StaticResource Actions}" Background="#FFFFC500" />
+                    <Button Name="GiveTeach" Style="{StaticResource Actions}" Background="Red" />
+                </Canvas>
         </Grid>
 
         <Grid>

@@ -36,7 +36,7 @@ namespace WpfApp1
 
         private void GoToFamily(Object sender, EventArgs e)
         {
-            Family window = new Family();
+            Family window = new Family("Новый код");
             window.Owner = CreateW.Owner;
             isGoToFamily = true;
             CreateW.Close();
@@ -58,6 +58,11 @@ namespace WpfApp1
                 }
             }
             
+        }
+
+        private void NameGhostChanged(object sender, TextChangedEventArgs args)
+        {
+            NewFamilyButton.IsEnabled = !string.IsNullOrEmpty(NameGhost.Text);
         }
     }
 }

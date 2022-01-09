@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Media;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace WpfApp1
@@ -10,6 +12,8 @@ namespace WpfApp1
 
         public MainWindow()
         {
+
+            
             InitializeComponent();
             CreateGhostButton.Click += GoCreate;
             GoToFamilyButton.Click += GoFindFamily;
@@ -19,15 +23,19 @@ namespace WpfApp1
         private void GoCreate(Object sender, EventArgs e)
         {
             MainW.Visibility = Visibility.Hidden;
-            CreateWindow window = new CreateWindow();
-            window.Owner = this;
+            CreateWindow window = new CreateWindow
+            {
+                Owner = this
+            };
             window.ShowDialog();
         }
 
         private void GoFindFamily(Object sender, EventArgs e)
         {
-            FindFamilyWindow window = new FindFamilyWindow();
-            window.Owner = this;
+            FindFamilyWindow window = new FindFamilyWindow
+            {
+                Owner = this
+            };
             window.ShowDialog();
         }
 

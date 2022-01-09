@@ -19,19 +19,42 @@ namespace WpfApp1
     /// </summary>
     public partial class FindFamilyWindow : Window
     {
+        private string[] AllFamilyCodes;
+
         public FindFamilyWindow()
         {
+            // Связь с сервером для доставания существующих кодов семьи
+            AllFamilyCodes = new string[10];
+            AllFamilyCodes[0] = "4";
+
             InitializeComponent();
-            GoToFamile.Click += GoToFamily;
+            GoToFamilyButton.Click += GoToFamily;
         }
         private void GoToFamily(Object sender, EventArgs e)
         {
+            // Проверка на существующий код семьи
+            if(!AllFamilyCodes.Any(n => n == FamilyCode.Text))
+            {
+                MessageBox.Show("Вы ввели неверный код семьи");
+            }
+            else
+            {
+                this.Close();
+                this.Owner.Visibility = Visibility.Hidden;
+                Family window = new Family(FamilyCode.Text)
+                {
+                    Owner = this.Owner
+                };
+                window.ShowDialog();
+            }
 
-            this.Close();
-            this.Owner.Visibility = Visibility.Hidden;
-            Family window = new Family();
-            window.Owner = this.Owner;
-            window.ShowDialog();
+
+            
+        }
+
+        private void FamilyCodeChanged(object sender, TextChangedEventArgs args)
+        {
+            GoToFamilyButton.IsEnabled = !string.IsNullOrEmpty(FamilyCode.Text);
         }
     }
 }

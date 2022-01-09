@@ -31,12 +31,15 @@
                        Margin="5" 
                        FontSize="16"/>
             
-            <TextBox Style="{StaticResource EditText}"
-                     Margin="0,0,0,30" />
+            <TextBox Name ="FamilyCode"
+                     Style="{StaticResource EditText}"
+                     Margin="0,0,0,30" 
+                     TextChanged="FamilyCodeChanged"/>
 
-            <Button Name="GoToFamile" 
+            <Button Name="GoToFamilyButton" 
                     Content="Go to Family" 
-                    Width="200" Height="50"/>
+                    Width="200" Height="50"
+                    IsEnabled="False"/>
         </StackPanel>
     </Grid>
 </Window>

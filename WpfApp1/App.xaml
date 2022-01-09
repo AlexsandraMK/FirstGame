@@ -59,6 +59,7 @@
             <Setter Property="BorderThickness" Value="3"/>
             <Setter Property="SelectionBrush" Value="{x:Null}" />
             <Setter Property="Foreground" Value="#FFC9C9C5"/>
+            <Setter Property="FontSize" Value="16"/>
         </Style>
 
         <Style TargetType="TextBlock">
