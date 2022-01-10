@@ -25,6 +25,14 @@
                                     </Setter.Value>
                                 </Setter>
                             </Trigger>
+                            <Trigger Property="Name" Value="Return">
+                                <Setter Property="Content" Value="Return to Main Menu"/>
+                                <Setter Property="Width" Value="300"/>
+                                <Setter Property="FontSize" Value="24"/>
+                                <Setter Property="HorizontalAlignment" Value="Left"/>
+                                <Setter Property="Padding" Value="5,5,5,5"/>
+                                <Setter Property="Margin" Value="13.5"/>
+                            </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
@@ -34,10 +42,14 @@
             <Setter Property="FontSize" Value="20"/>
         </Style>
 
+        <ControlTemplate TargetType="Button" x:Key="Return">
+                        
+        </ControlTemplate>
+
         <Style TargetType="Grid" x:Key="BackgroundGrid">
             <Setter Property="Background">
                 <Setter.Value>
-                    <ImageBrush ImageSource="D:\Progs\VisualSaves\WPF\App1\WpfApp1\WpfApp1\bin\Debug\Background.png"  Opacity="0.5"/>
+                    <ImageBrush ImageSource="D:\Progs\VisualSaves\WPF\App1\WpfApp1\WpfApp1\bin\Debug\Images\Background\Background.png"  Opacity="0.5"/>
                 </Setter.Value>
             </Setter>
         </Style>

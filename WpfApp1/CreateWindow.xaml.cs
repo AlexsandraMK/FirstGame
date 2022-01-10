@@ -21,17 +21,21 @@ namespace WpfApp1
     {
         bool isReturn = false;
         bool isGoToFamily = false;
+        string path = "Female";
+        string photo = "1";
+        string uri;
+
         public CreateWindow()
         {
             InitializeComponent();
-            Return.Click += GoReturn;
-            NewFamilyButton.Click += GoToFamily;
+            uri = "Images/"+ path + "/portrait_" + photo + ".png";
+            Ghost.Fill = new ImageBrush(new BitmapImage(new Uri(uri, UriKind.Relative)));
         }
+
         private void GoReturn(Object sender, EventArgs e)
         {
             isReturn = true;
-            CreateW.Close();
-            
+            CreateW.Close(); 
         }
 
         private void GoToFamily(Object sender, EventArgs e)
@@ -60,9 +64,20 @@ namespace WpfApp1
             
         }
 
-        private void NameGhostChanged(object sender, TextChangedEventArgs args)
-        {
+        private void NameGhostChanged(object sender, TextChangedEventArgs args) =>
             NewFamilyButton.IsEnabled = !string.IsNullOrEmpty(NameGhost.Text);
+
+        private void ChooseGhost(object sender, RoutedEventArgs e)
+        {
+            RadioButton chBox = (RadioButton)sender;
+            if (chBox.GroupName == "Gender") path = chBox.Content.ToString();
+
+            if (chBox.GroupName == "Appearance") photo = chBox.Content.ToString();
+
+            uri = "Images/" + path + "/portrait_" + photo + ".png";
+            Ghost.Fill = new ImageBrush(new BitmapImage(new Uri(uri, UriKind.Relative)));
+
         }
+
     }
 }

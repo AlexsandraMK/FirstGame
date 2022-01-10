@@ -39,7 +39,8 @@
             <Button Name="GoToFamilyButton" 
                     Content="Go to Family" 
                     Width="200" Height="50"
-                    IsEnabled="False"/>
+                    IsEnabled="False"
+                    Click="GoToFamily"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -28,7 +28,6 @@ namespace WpfApp1
             AllFamilyCodes[0] = "4";
 
             InitializeComponent();
-            GoToFamilyButton.Click += GoToFamily;
         }
         private void GoToFamily(Object sender, EventArgs e)
         {
@@ -52,9 +51,7 @@ namespace WpfApp1
             
         }
 
-        private void FamilyCodeChanged(object sender, TextChangedEventArgs args)
-        {
+        private void FamilyCodeChanged(object sender, TextChangedEventArgs args) =>
             GoToFamilyButton.IsEnabled = !string.IsNullOrEmpty(FamilyCode.Text);
-        }
     }
 }

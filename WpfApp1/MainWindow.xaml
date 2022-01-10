@@ -10,7 +10,7 @@
     
     <Grid>
         <Grid.Background >
-            <ImageBrush ImageSource="D:\Progs\VisualSaves\WPF\App1\WpfApp1\WpfApp1\bin\Debug\payk.png"  />
+            <ImageBrush ImageSource="D:\Progs\VisualSaves\WPF\App1\WpfApp1\WpfApp1\bin\Debug\Images\Background\payk.png"  />
         </Grid.Background>
 
         <Grid Style="{StaticResource BackgroundGrid}">
@@ -43,21 +43,21 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 
-                <Button Name="CreateGhostButton"
-                        Grid.Row="0"
-                        Content="Create a ghost"/>
+                <Button Grid.Row="0"
+                        Content="Create a ghost"
+                        Click="GoCreate"/>
                 
-                <Button Name="GoToFamilyButton"
-                        Grid.Row="1"
-                        Content="Go to family" />
+                <Button Grid.Row="1"
+                        Content="Go to family"
+                        Click="GoFindFamily"/>
                 
-                <Button Name="SettingsButton"
-                        Grid.Row="2"
-                        Content="Settings"/>
+                <Button Grid.Row="2"
+                        Content="Settings"
+                        Click="GoSettings"/>
                 
-                <Button Name="Exit"
-                        Grid.Row="3"
-                        Content="Exit"/>
+                <Button Grid.Row="3"
+                        Content="Exit"
+                        Click="GoExit"/>
             </Grid>
         </Grid>
     </Grid>

@@ -12,12 +12,7 @@ namespace WpfApp1
 
         public MainWindow()
         {
-
-            
             InitializeComponent();
-            CreateGhostButton.Click += GoCreate;
-            GoToFamilyButton.Click += GoFindFamily;
-            Exit.Click += GoExit;
         }
 
         private void GoCreate(Object sender, EventArgs e)
@@ -45,6 +40,10 @@ namespace WpfApp1
         }
 
         private void CloseWindow(object sender, EventArgs e)
+        {
+        }
+
+        private void GoSettings(Object sender, EventArgs e)
         {
         }
     }

@@ -10,6 +10,20 @@
         WindowStartupLocation="CenterOwner"
         Closed="CloseWindow">
 
+    <Window.Resources>
+        <Style TargetType="Rectangle">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Height" Value="400"/>
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Grid.Column" Value="1"/>
+        </Style>
+
+
+
+    </Window.Resources>
+    
+    
     <Grid Style="{StaticResource BackgroundGrid}">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -28,28 +42,16 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Rectangle Grid.Column="1" 
-                       Fill="#FFF4F4F5" 
-                       HorizontalAlignment="Left"
-                       Height="400"
-                       Stroke="Black"
-                       VerticalAlignment="Center"
-                       Width="250">
+            <Rectangle Name="Ghost" Fill="#FFF4F4F5" Stroke="Black">
                 <Rectangle.Effect>
                     <DropShadowEffect Color="Black" BlurRadius="1000"/>
                 </Rectangle.Effect>
             </Rectangle>
 
-            <Rectangle Grid.Column="1" 
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"
-                       Height="400"
-                       Width="250"
-                       Opacity="0.4">
+            <Rectangle Opacity="0.4">
                 <Rectangle.Fill>
-                    <ImageBrush ImageSource="D:\Progs\VisualSaves\WPF\App1\WpfApp1\WpfApp1\bin\Debug\border.jfif"  />
+                    <ImageBrush ImageSource="D:\Progs\VisualSaves\WPF\App1\WpfApp1\WpfApp1\bin\Debug\Images\Background\border.jfif"  />
                 </Rectangle.Fill>
-
             </Rectangle>
 
             <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="60">
@@ -67,12 +69,12 @@
                     <TextBlock Text="Gender:" VerticalAlignment="Center" Margin="0,0,20,0"/>
                     
                     <StackPanel Margin="20">
-                        <RadioButton IsChecked="True"  GroupName="Gender" HorizontalAlignment="Center"/>
+                        <RadioButton Content="Female" IsChecked="True"  GroupName="Gender" HorizontalAlignment="Center" Checked="ChooseGhost"/>
                         <TextBlock HorizontalAlignment="Center" Text="Female"/>
                     </StackPanel>
 
                     <StackPanel Margin="20">
-                        <RadioButton  GroupName="Gender" HorizontalAlignment="Center"/>
+                        <RadioButton  Content="Male"  GroupName="Gender" HorizontalAlignment="Center" Checked="ChooseGhost"/>
                         <TextBlock HorizontalAlignment="Center" Text="Male"/>
                     </StackPanel>
                 </StackPanel>
@@ -82,14 +84,18 @@
                 <StackPanel Orientation="Horizontal" Margin="15">
                     <TextBlock Text="Appearance:" VerticalAlignment="Center" Margin="0,0,20,0"/>
                     <StackPanel Margin="20">
-                        <RadioButton   IsChecked="True" GroupName="Appearance" HorizontalAlignment="Center"/>
+                        <RadioButton Content="1" IsChecked="True" GroupName="Appearance" HorizontalAlignment="Center" Checked="ChooseGhost"/>
                         <TextBlock HorizontalAlignment="Center" Text="1"/>
                         </StackPanel>
                         <StackPanel Margin="20">
-                            <RadioButton  GroupName="Appearance" HorizontalAlignment="Center"/>
+                        <RadioButton Content="2" GroupName="Appearance" HorizontalAlignment="Center" Checked="ChooseGhost"/>
                         <TextBlock HorizontalAlignment="Center" Text="2"/>
                         </StackPanel>
+                    <StackPanel Margin="20">
+                        <RadioButton Content="3" GroupName="Appearance" HorizontalAlignment="Center" Checked="ChooseGhost"/>
+                        <TextBlock HorizontalAlignment="Center" Text="3"/>
                     </StackPanel>
+                </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="15">
                     <TextBlock Text="Difficulty:" VerticalAlignment="Center" Margin="0,0,20,0"/>
@@ -114,7 +120,8 @@
                         FontSize="19" 
                         Content="Create new ghost"
                         Width="300"
-                        IsEnabled="False"/>
+                        IsEnabled="False"
+                        Click="GoToFamily"/>
 
             </StackPanel>
             
@@ -122,12 +129,7 @@
 
         <Button Grid.Row="2" 
                 Name ="Return"
-                Content="Return to Main Menu" 
-                Width="300"
-                FontSize="24" 
-                HorizontalAlignment="Left"
-                Padding="5,5,5,5"
-                Margin="13.5"/>
+                Click="GoReturn"/>
 
     </Grid>
 </Window>

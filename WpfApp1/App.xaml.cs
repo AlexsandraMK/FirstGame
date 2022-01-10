@@ -19,6 +19,7 @@ namespace WpfApp1
 
         public App()
         {
+            
             mp = new MediaPlayer();
             mp.Open(new Uri("music.wav", UriKind.Relative));
             mp.Volume = 0.025;
