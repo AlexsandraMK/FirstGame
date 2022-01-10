@@ -38,12 +38,14 @@ namespace WpfApp1
             }
             else
             {
-                this.Close();
                 this.Owner.Visibility = Visibility.Hidden;
                 Family window = new Family(FamilyCode.Text)
                 {
                     Owner = this.Owner
                 };
+                this.Close();
+                
+                
                 window.ShowDialog();
             }
 

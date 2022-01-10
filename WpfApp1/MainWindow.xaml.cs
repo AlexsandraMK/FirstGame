@@ -39,9 +39,6 @@ namespace WpfApp1
             MainW.Close();
         }
 
-        private void CloseWindow(object sender, EventArgs e)
-        {
-        }
 
         private void GoSettings(Object sender, EventArgs e)
         {

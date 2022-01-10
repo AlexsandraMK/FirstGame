@@ -31,7 +31,7 @@ namespace WpfApp1
 
         private void LoadedWindow(object sender, EventArgs e)
         {
-
+            
            
 
             GhostHome.Height = MainGrid.RowDefinitions[0].ActualHeight;
@@ -150,6 +150,11 @@ namespace WpfApp1
             this.Close();
         }
 
+        private void StopTimer(object sender, EventArgs e)
+        {
+            ghost.timer.Stop();
+        }
+
         private void CloseWindow(object sender, EventArgs e)
         {
             if (isReturn)
@@ -159,6 +164,7 @@ namespace WpfApp1
             else
             {
                 this.Owner.Close();
+                Application.Current.Shutdown();
             }
         }
 
@@ -173,12 +179,13 @@ namespace WpfApp1
         Canvas Home;
         StackPanel ghost;
         public ImageSource ghostPhoto;
+        public System.Windows.Threading.DispatcherTimer timer;
         public Ghost(Canvas Home, StackPanel ghost)
         {
             this.Home = Home;
             this.ghost = ghost;
             ghostPhoto = new BitmapImage(new Uri("Images/Female/1.png", UriKind.Relative));
-            System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
+            timer = new System.Windows.Threading.DispatcherTimer();
             timer.Tick += Move;
             timer.Interval = TimeSpan.FromSeconds(5);
             timer.Start();

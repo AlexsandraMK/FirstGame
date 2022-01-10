@@ -8,6 +8,7 @@
         Style="{StaticResource MainWindow}"
         WindowStartupLocation="CenterScreen"
         Closed="CloseWindow"
+        Closing="StopTimer"
         Loaded="LoadedWindow">
 
     <Window.Resources>
